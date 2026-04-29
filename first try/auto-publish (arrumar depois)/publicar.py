@@ -1,7 +1,6 @@
 import os
 import tkinter as tk
 from tkinter import filedialog, messagebox
-import json
 import processador  # Isso puxa o seu arquivo processador.py
 import git_utils
 

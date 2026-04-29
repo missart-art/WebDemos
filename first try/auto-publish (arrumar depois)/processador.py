@@ -56,19 +56,24 @@ def gerar_html_stlite(nome_exibido, arquivos_dict, requisitos, main_file):
 """
 
 # --- 3. LÓGICA DE EXECUÇÃO (A "Fábrica") ---
-def executar_processamento(caminho_pasta, nome_sistema, descricao, autor):
-    # Cria um nome seguro para a URL (ex: "Minha Venda" -> "minha-venda")
+def executar_processamento(pasta_origem, nome_sistema, descricao, autor):
+    # 1. Define o nome da pasta de destino (slug)
     slug = nome_sistema.lower().replace(" ", "-")
-    os.makedirs(slug, exist_ok=True)
+    
+    # 2. Define o caminho onde a nova pasta será criada (dentro de WebDemos)
+    base_path = os.path.dirname(os.path.abspath(__file__))
+    pasta_destino = os.path.join(base_path, slug) # Use um nome diferente aqui!
+    os.makedirs(pasta_destino, exist_ok=True)
 
+    # --- IMPORTANTE: Inicialize estas variáveis para evitar erro de "NameError" ---
     arquivos_da_pasta = {}
     requisitos_totais = set()
     arquivo_principal = ""
 
-    # Varre a pasta selecionada
-    for nome_arq in os.listdir(caminho_pasta):
+    # 3. Varre a pasta de ORIGEM (a que você selecionou na interface)
+    for nome_arq in os.listdir(pasta_origem):
         if nome_arq.endswith(".py"):
-            caminho_full = os.path.join(caminho_pasta, nome_arq)
+            caminho_full = os.path.join(pasta_origem, nome_arq)
             with open(caminho_full, "r", encoding="utf-8") as f:
                 conteudo = f.read()
                 arquivos_da_pasta[nome_arq] = conteudo
@@ -78,20 +83,23 @@ def executar_processamento(caminho_pasta, nome_sistema, descricao, autor):
                     arquivo_principal = nome_arq
                     requisitos_totais.update(extrair_requisitos(conteudo))
 
-    # Salva o metadata.json (Fundamental para o seu Portal ler depois!)
+    # 4. Salva o metadata.json na PASTA_DESTINO
     metadata = {
         "nome": nome_sistema,
         "descricao": descricao,
         "autor": autor,
         "pasta": slug,
-        "data": "2026-04-29" # Data atual
+        "data": "2026-04-29"
     }
-    with open(f"{slug}/metadata.json", "w", encoding="utf-8") as f:
+
+    meta_path = os.path.join(pasta_destino, "metadata.json")
+    with open(meta_path, "w", encoding="utf-8") as f:
         json.dump(metadata, f, indent=4)
 
-    # Salva o index.html
+    # 5. Salva o index.html na PASTA_DESTINO
+    html_path = os.path.join(pasta_destino, "index.html")
     html_final = gerar_html_stlite(nome_sistema, arquivos_da_pasta, list(requisitos_totais), arquivo_principal)
-    with open(f"{slug}/index.html", "w", encoding="utf-8") as f:
+    with open(html_path, "w", encoding="utf-8") as f:
         f.write(html_final)
 
     return slug
