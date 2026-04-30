@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DevPortal | Meus Protótipos</title>
+    <title>Empresa | Central de Sistemas</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -19,8 +19,8 @@
 
     <nav class="w-full py-6 px-8 flex justify-between items-center glass sticky top-0 z-50 border-b border-slate-200">
         <div class="flex items-center gap-2">
-            <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold">P</div>
-            <span class="text-xl font-bold tracking-tight">DevPortal</span>
+            <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold">E</div>
+            <span class="text-xl font-bold tracking-tight">Empresa | Central de Sistemas</span>
         </div>
         <div data-netlify-identity-menu></div>
     </nav>
@@ -29,10 +29,10 @@
         
         <section class="text-center mb-16">
             <h1 class="text-5xl font-extrabold text-slate-900 mb-4 tracking-tight">
-                Seus Protótipos em <span class="text-blue-600">Tempo Real</span>
+                Sistemas e Programas da <span class="text-blue-600">Empresa</span>
             </h1>
             <p class="text-lg text-slate-600 max-w-2xl mx-auto">
-                Ambiente de demonstração técnica para validação de sistemas e interfaces Python rodando via WebAssembly.
+                Demonstrações operacionais e validação técnica de ferramentas e interfaces inteligentes em tempo real.
             </p>
         </section>
 
@@ -41,71 +41,59 @@
         <div id="portal-conteudo" class="hidden">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 
-                <div onclick="location.href='/sistema-vendas'" 
+                <!-- Card 1: Gestão de Estoque (Novo) -->
+                <div onclick="window.open('https://previsaodeestoque.streamlit.app/', '_blank', 'noopener,noreferrer')" 
+                     class="card-hover bg-white p-8 rounded-2xl border border-slate-200 cursor-pointer transition-all duration-300 group">
+                    <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+                        📦
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-slate-800">Gestão de Estoque</h3>
+                    <p class="text-slate-500 mb-4 text-sm leading-relaxed">
+                        Controle de inventário inteligente, médias de consumo por tipo de dia (Pico/Útil) e alertas de reposição.
+                    </p>
+                    <span class="text-emerald-600 font-semibold text-sm flex items-center gap-1">
+                        Acessar Sistema <span>→</span>
+                    </span>
+                </div>
+
+                <!-- Card 2: Conferência de Comprovantes -->
+                <div onclick="window.open('https://conferenciadecomprovante.streamlit.app/', '_blank', 'noopener,noreferrer')" 
+                     class="card-hover bg-white p-8 rounded-2xl border border-slate-200 cursor-pointer transition-all duration-300 group">
+                    <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                        🔍
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-slate-800">Conferência de Comprovantes</h3>
+                    <p class="text-slate-500 mb-4 text-sm leading-relaxed">
+                        Extração automatizada de dados via OCR, busca contextual inteligente e gestão de arquivos em nuvem.
+                    </p>
+                    <span class="text-blue-600 font-semibold text-sm flex items-center gap-1">
+                        Acessar Sistema <span>→</span>
+                    </span>
+                </div>
+
+                <!-- Card 3: Previsão de Pedidos -->
+                <div onclick="window.open('https://previsaopedidos.streamlit.app/', '_blank', 'noopener,noreferrer')" 
                      class="card-hover bg-white p-8 rounded-2xl border border-slate-200 cursor-pointer transition-all duration-300 group">
                     <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors">
                         📊
                     </div>
-                    <h3 class="text-xl font-bold mb-2 text-slate-800">Sistema de Vendas</h3>
+                    <h3 class="text-xl font-bold mb-2 text-slate-800">Previsão de Pedidos</h3>
                     <p class="text-slate-500 mb-4 text-sm leading-relaxed">
-                        Dashboard comercial com análise de métricas, gráficos interativos e exportação de relatórios em CSV.
+                        Análise de demanda futura baseada em histórico de vendas e influências externas.
                     </p>
                     <span class="text-blue-600 font-semibold text-sm flex items-center gap-1">
-                        Acessar Protótipo <span>→</span>
+                        Acessar Sistema <span>→</span>
                     </span>
                 </div>
-
-                <div onclick="window.open('https://conferenciadecomprovante.streamlit.app/', '_blank', 'noopener,noreferrer')" 
-                class="card-hover bg-white p-8 rounded-2xl border border-slate-200 cursor-pointer transition-all duration-300 group">
-               
-               <!-- Ícone com efeito Hover -->
-               <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                   🔍
-               </div>
-           
-               <!-- Título -->
-               <h3 class="text-xl font-bold mb-2 text-slate-800">Conferência de Comprovantes</h3>
-           
-               <!-- Descrição Técnica -->
-               <p class="text-slate-500 mb-4 text-sm leading-relaxed">
-                   Extração automatizada de dados via OCR, busca contextual inteligente e gestão de inventário de arquivos em nuvem.
-               </p>
-           
-               <!-- Link de Acesso -->
-               <span class="text-blue-600 font-semibold text-sm flex items-center gap-1">
-                   Acessar Sistema <span>→</span>
-               </span>
-           </div>
-           
-           <div onclick="window.open('https://previsaopedidos.streamlit.app/', '_blank', 'noopener,noreferrer')" 
-           class="card-hover bg-white p-8 rounded-2xl border border-slate-200 cursor-pointer transition-all duration-300 group">
-          
-          <!-- Ícone com efeito Hover -->
-          <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors">
-              🔍
-          </div>
-      
-          <!-- Título -->
-          <h3 class="text-xl font-bold mb-2 text-slate-800">Previsão de Pedidos</h3>
-      
-          <!-- Descrição Técnica -->
-          <p class="text-slate-500 mb-4 text-sm leading-relaxed">
-            Análise de estoque e demanda.
-          </p>
-      
-          <!-- Link de Acesso -->
-          <span class="text-blue-600 font-semibold text-sm flex items-center gap-1">
-              Acessar Sistema <span>→</span>
-          </span>
-      </div>
               
             </div>
         </div>
 
+        <!-- Aviso de Login -->
         <div id="login-aviso" class="text-center py-20 bg-white rounded-3xl border-2 border-dashed border-slate-200">
             <div class="text-4xl mb-4">🔒</div>
             <h2 class="text-2xl font-bold text-slate-800 mb-2">Acesso Restrito</h2>
-            <p class="text-slate-500">Por favor, faça login para visualizar os seus protótipos.</p>
+            <p class="text-slate-500">Por favor, faça login com sua conta corporativa para visualizar os sistemas.</p>
         </div>
 
     </main>
@@ -128,7 +116,6 @@
         netlifyIdentity.on('login', () => { atualizarUI(); netlifyIdentity.close(); });
         netlifyIdentity.on('logout', () => { atualizarUI(); });
         
-        // Checagem inicial
         atualizarUI();
     </script>
 </body>
