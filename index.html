@@ -3,19 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DevPortal | Meus Protótipos</title>
+    <title>DevPortal | Central de Sistemas</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-    <script>
-    const ADMIN_EMAIL = "jsanrart@exemplo.com"; // Substitua pelo seu e-mail real
 
-        function verificarAdmin() {
-            const user = netlifyIdentity.currentUser();
-            // Retorna true se houver um usuário e o e-mail for o seu
-            return user && user.email === ADMIN_EMAIL;
-        }</script>
     <style>
         body { font-family: 'Inter', sans-serif; }
         .glass { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px); }
@@ -24,6 +17,7 @@
 </head>
 <body class="bg-slate-50 text-slate-900 min-h-screen">
 
+    <!-- Navegação -->
     <nav class="w-full py-6 px-8 flex justify-between items-center glass sticky top-0 z-50 border-b border-slate-200">
         <div class="flex items-center gap-2">
             <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold">P</div>
@@ -34,120 +28,156 @@
 
     <main class="max-w-6xl mx-auto px-6 py-12">
         
+        <!-- Hero Section -->
         <section class="text-center mb-16">
             <h1 class="text-5xl font-extrabold text-slate-900 mb-4 tracking-tight">
-                Seus Protótipos em <span class="text-blue-600">Tempo Real</span>
+                Sistemas da <span class="text-blue-600">Empresa</span>
             </h1>
             <p class="text-lg text-slate-600 max-w-2xl mx-auto">
-                Ambiente de demonstração técnica para validação de sistemas e interfaces Python rodando via WebAssembly.
+                Ambiente de demonstração técnica e validação de interfaces inteligentes rodando em tempo real.
             </p>
         </section>
 
         <hr class="mb-16 border-slate-200">
 
+        <!-- Grid de Sistemas (Aparece após Login) -->
         <div id="portal-conteudo" class="hidden">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 
-                <div onclick="location.href='/sistema-vendas'" 
-                     class="card-hover bg-white p-8 rounded-2xl border border-slate-200 cursor-pointer transition-all duration-300 group">
-                    <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                        📊
+                <!-- Card 1: Gestão de Estoque -->
+                <div onclick="abrirModal('estoque')" class="card-hover bg-white p-8 rounded-2xl border border-slate-200 cursor-pointer transition-all duration-300 group">
+                    <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+                        📦
                     </div>
-                    <h3 class="text-xl font-bold mb-2 text-slate-800">Sistema de Vendas</h3>
+                    <h3 class="text-xl font-bold mb-2 text-slate-800">Gestão de Estoque</h3>
                     <p class="text-slate-500 mb-4 text-sm leading-relaxed">
-                        Dashboard comercial com análise de métricas, gráficos interativos e exportação de relatórios em CSV.
+                        Controle de inventário inteligente com médias de consumo e alertas de reposição automáticos.
                     </p>
-                    <span class="text-blue-600 font-semibold text-sm flex items-center gap-1">
-                        Acessar Protótipo <span>→</span>
+                    <span class="text-emerald-600 font-semibold text-sm flex items-center gap-1">
+                        Ver Detalhes <span>→</span>
                     </span>
                 </div>
 
-                <div onclick="abrirModal('conferencia')" 
-                class="card-hover bg-white p-8 rounded-2xl border border-slate-200 cursor-pointer transition-all duration-300 group">
-               
-               <!-- Ícone com efeito Hover -->
-               <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                   🔍
-               </div>
-           
-               <!-- Título -->
-               <h3 class="text-xl font-bold mb-2 text-slate-800">Conferência de Comprovantes</h3>
-           
-               <!-- Descrição Técnica -->
-               <p class="text-slate-500 mb-4 text-sm leading-relaxed">
-                   Extração automatizada de dados via OCR, busca contextual inteligente e gestão de inventário de arquivos em nuvem.
-               </p>
-           
-               <!-- Link de Acesso -->
-               <span class="text-blue-600 font-semibold text-sm flex items-center gap-1">
-                   Acessar Sistema <span>→</span>
-               </span>
-           </div>
-           
-           <div onclick="window.open('https://previsaopedidos.streamlit.app/', '_blank', 'noopener,noreferrer')" 
-           class="card-hover bg-white p-8 rounded-2xl border border-slate-200 cursor-pointer transition-all duration-300 group">
-          
-          <!-- Ícone com efeito Hover -->
-          <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors">
-              🔍
-          </div>
-      
-          <!-- Título -->
-          <h3 class="text-xl font-bold mb-2 text-slate-800">Previsão de Pedidos</h3>
-      
-          <!-- Descrição Técnica -->
-          <p class="text-slate-500 mb-4 text-sm leading-relaxed">
-            Análise de estoque e demanda.
-          </p>
-      
-          <!-- Link de Acesso -->
-          <span class="text-blue-600 font-semibold text-sm flex items-center gap-1">
-              Acessar Sistema <span>→</span>
-          </span>
-      </div>
-              
+                <!-- Card 2: Conferência OCR -->
+                <div onclick="abrirModal('conferencia')" class="card-hover bg-white p-8 rounded-2xl border border-slate-200 cursor-pointer transition-all duration-300 group">
+                    <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                        🔍
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-slate-800">Conferência de Comprovantes</h3>
+                    <p class="text-slate-500 mb-4 text-sm leading-relaxed">
+                        Extração automatizada de dados via OCR e gestão de arquivos em nuvem com busca contextual.
+                    </p>
+                    <span class="text-blue-600 font-semibold text-sm flex items-center gap-1">
+                        Ver Detalhes <span>→</span>
+                    </span>
+                </div>
+
+                <!-- Card 3: Previsão de Pedidos -->
+                <div onclick="abrirModal('pedidos')" class="card-hover bg-white p-8 rounded-2xl border border-slate-200 cursor-pointer transition-all duration-300 group">
+                    <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                        📊
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-slate-800">Previsão de Pedidos</h3>
+                    <p class="text-slate-500 mb-4 text-sm leading-relaxed">
+                        Análise de demanda futura baseada em histórico de vendas e influências externas climáticas.
+                    </p>
+                    <span class="text-blue-600 font-semibold text-sm flex items-center gap-1">
+                        Ver Detalhes <span>→</span>
+                    </span>
+                </div>
+
             </div>
         </div>
 
+        <!-- Aviso de Login (Aparece se deslogado) -->
         <div id="login-aviso" class="text-center py-20 bg-white rounded-3xl border-2 border-dashed border-slate-200">
             <div class="text-4xl mb-4">🔒</div>
             <h2 class="text-2xl font-bold text-slate-800 mb-2">Acesso Restrito</h2>
-            <p class="text-slate-500">Por favor, faça login para visualizar os seus protótipos.</p>
+            <p class="text-slate-500">Por favor, faça login para visualizar os sistemas da empresa.</p>
         </div>
+    </main>
 
-                <!-- Modal de Detalhes -->
-        <script>
-            const ADMIN_EMAIL = "jsanrart@exemplo.com"; // [!] COLOQUE SEU EMAIL AQUI
+    <!-- Modal de Detalhes -->
+    <div id="modal-detalhes" class="hidden fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+        <div class="bg-white w-full max-w-2xl rounded-3xl p-10 shadow-2xl relative">
+            <button onclick="fecharModal()" class="absolute top-6 right-6 text-slate-400 hover:text-slate-600 text-2xl">✕</button>
+            
+            <div class="mb-8">
+                <span class="text-blue-600 font-bold text-sm uppercase tracking-wider">Documentação do Sistema</span>
+                <h2 id="modal-titulo" class="text-4xl font-extrabold text-slate-900 mt-2 italic">Nome do Sistema</h2>
+            </div>
 
-            const dadosSistemas = {
-                'estoque': {
-                    titulo: "Gestão de Estoque Inteligente",
-                    desc: "Sistema preditivo que analisa consumos em dias úteis e picos de demanda para evitar rupturas de estoque.",
-                    valor: "R$ 1.200,00 /mês",
-                    tutorial: "https://seu-link-de-tutorial.com",
-                    link: "https://previsaodeestoque.streamlit.app/"
-                },
-                'conferencia': {
-                    titulo: "Conferência de Comprovantes OCR",
-                    desc: "Extração automática de dados de canhotos e notas fiscais utilizando visão computacional e inteligência artificial.",
-                    valor: "R$ 0,50 por doc processado",
-                    tutorial: "https://seu-link-de-tutorial.com",
-                    link: "https://conferenciadecomprovante.streamlit.app/"
-                }
-            };
+            <div class="space-y-8">
+                <div>
+                    <label class="text-xs font-bold text-slate-400 uppercase tracking-widest">Breve Descrição</label>
+                    <p id="modal-desc" class="text-slate-600 text-lg leading-relaxed mt-1">Descrição detalhada...</p>
+                </div>
 
-                    function abrirModal(idSistema) {
+                <div class="grid grid-cols-2 gap-8">
+                    <div>
+                        <label class="text-xs font-bold text-slate-400 uppercase tracking-widest">Valor Sugerido</label>
+                        <p id="modal-valor" class="text-3xl font-bold text-emerald-600 mt-1">R$ 0,00</p>
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-slate-400 uppercase tracking-widest">Suporte e Guia</label>
+                        <a id="modal-tutorial" href="#" target="_blank" class="block text-blue-600 underline font-semibold text-lg mt-1">📖 Tutorial de Uso</a>
+                    </div>
+                </div>
+
+                <!-- Botão Admin (Oculto por padrão) -->
+                <button id="btn-editar-admin" class="hidden w-full py-3 bg-amber-50 text-amber-700 border border-amber-200 rounded-xl font-bold hover:bg-amber-100 transition-all">
+                    🛠️ Modo Editor (Apenas Admin)
+                </button>
+
+                <!-- Botão de Acesso Final -->
+                <a id="modal-link-acesso" href="#" target="_blank" class="block w-full py-5 bg-blue-600 text-white text-center rounded-2xl font-bold text-xl shadow-xl shadow-blue-200 hover:bg-blue-700 hover:scale-[1.02] transition-all">
+                    Entrar no Sistema →
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script Unificado -->
+    <script>
+        const ADMIN_EMAIL = "jsanrart@exemplo.com"; 
+
+        const dadosSistemas = {
+            'estoque': {
+                titulo: "Gestão de Estoque Inteligente",
+                desc: "Análise preditiva de insumos baseada em médias móveis de consumo diário, diferenciando dias de pico e dias úteis.",
+                valor: "R$ 1.500,00",
+                tutorial: "https://tutorial.estoque.com",
+                link: "https://previsaodeestoque.streamlit.app/"
+            },
+            'conferencia': {
+                titulo: "Conferência de Comprovantes OCR",
+                desc: "Leitura automatizada de canhotos fiscais com integração em banco de dados SQLite e visualização de imagens.",
+                valor: "R$ 800,00",
+                tutorial: "https://tutorial.ocr.com",
+                link: "https://conferenciadecomprovante.streamlit.app/"
+            },
+            'pedidos': {
+                titulo: "Previsão de Pedidos e Demanda",
+                desc: "Cálculo de demanda futura considerando feriados, pontes e condições climáticas para otimização de compras.",
+                valor: "R$ 1.200,00",
+                tutorial: "https://tutorial.pedidos.com",
+                link: "https://previsaopedidos.streamlit.app/"
+            }
+        };
+
+        const portal = document.getElementById('portal-conteudo');
+        const aviso = document.getElementById('login-aviso');
+
+        function abrirModal(idSistema) {
             const info = dadosSistemas[idSistema];
             const user = netlifyIdentity.currentUser();
 
-            // Preenche os campos do modal
             document.getElementById('modal-titulo').innerText = info.titulo;
             document.getElementById('modal-desc').innerText = info.desc;
             document.getElementById('modal-valor').innerText = info.valor;
             document.getElementById('modal-tutorial').href = info.tutorial;
             document.getElementById('modal-link-acesso').href = info.link;
 
-            // Lógica Admin: Mostra o botão de editar apenas para você
             const btnAdmin = document.getElementById('btn-editar-admin');
             if (user && user.email === ADMIN_EMAIL) {
                 btnAdmin.classList.remove('hidden');
@@ -155,58 +185,12 @@
                 btnAdmin.classList.add('hidden');
             }
 
-            // Exibe o modal
             document.getElementById('modal-detalhes').classList.remove('hidden');
         }
 
         function fecharModal() {
             document.getElementById('modal-detalhes').classList.add('hidden');
         }
-        </script>
-        
-        <div id="modal-detalhes" class="hidden fixed inset-0 z-[100] flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
-            <div class="bg-white w-full max-w-2xl rounded-3xl p-10 shadow-2xl relative">
-                <button onclick="fecharModal()" class="absolute top-6 right-6 text-slate-400 hover:text-slate-600 text-2xl">✕</button>
-                
-                <div class="mb-8">
-                    <span class="text-blue-600 font-bold text-sm uppercase tracking-wider">Documentação do Sistema</span>
-                    <h2 id="modal-titulo" class="text-4xl font-extrabold text-slate-900 mt-2">Nome do Sistema</h2>
-                </div>
-
-                <div class="space-y-8">
-                    <div>
-                        <label class="text-xs font-bold text-slate-400 uppercase tracking-widest">O que o programa faz</label>
-                        <p id="modal-desc" class="text-slate-600 text-lg leading-relaxed mt-1">Descrição detalhada...</p>
-                    </div>
-
-                    <div class="grid grid-cols-2 gap-8">
-                        <div>
-                            <label class="text-xs font-bold text-slate-400 uppercase tracking-widest">Valor de Mercado Sugerido</label>
-                            <p id="modal-valor" class="text-3xl font-bold text-emerald-600 mt-1">R$ 0,00</p>
-                        </div>
-                        <div>
-                            <label class="text-xs font-bold text-slate-400 uppercase tracking-widest">Apoio Técnico</label>
-                            <a id="modal-tutorial" href="#" target="_blank" class="block text-blue-600 underline font-semibold text-lg mt-1">📖 Tutorial de Uso</a>
-                        </div>
-                    </div>
-
-                    <!-- Botão Admin (Oculto por padrão) -->
-                    <button id="btn-editar-admin" class="hidden w-full py-3 bg-amber-50 text-amber-700 border border-amber-200 rounded-xl font-bold hover:bg-amber-100 transition-all">
-                        🛠️ Modo Editor (Apenas Admin)
-                    </button>
-
-                    <!-- Botão de Acesso -->
-                    <a id="modal-link-acesso" href="#" target="_blank" class="block w-full py-5 bg-blue-600 text-white text-center rounded-2xl font-bold text-xl shadow-xl shadow-blue-200 hover:bg-blue-700 hover:scale-[1.02] transition-all">
-                        Entrar no Sistema →
-                    </a>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <script>
-        const portal = document.getElementById('portal-conteudo');
-        const aviso = document.getElementById('login-aviso');
 
         function atualizarUI() {
             const user = netlifyIdentity.currentUser();
@@ -219,10 +203,10 @@
             }
         }
 
+        netlifyIdentity.on('init', user => atualizarUI());
         netlifyIdentity.on('login', () => { atualizarUI(); netlifyIdentity.close(); });
         netlifyIdentity.on('logout', () => { atualizarUI(); });
         
-        // Checagem inicial
         atualizarUI();
     </script>
 </body>
